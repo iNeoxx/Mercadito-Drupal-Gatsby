@@ -35,7 +35,6 @@ module.exports = {
       options: {
         baseUrl: `https://dev-pruebas-mercadito.pantheonsite.io/`,
         apiBase: `jsonapi`, // optional, defaults to `jsonapi`
-        skipFileDownloads: true,
       },
     },
   ],
