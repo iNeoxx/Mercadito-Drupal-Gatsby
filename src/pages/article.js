@@ -16,6 +16,7 @@ const ArticlePage = ({data}) => {
       <Img fluid={ArticlePage.relationships.field_image.localFile.childImageSharp.fluid} />
       <div className="redetxt" dangerouslySetInnerHTML={ { __html: ArticlePage.body.value}}/>
       <Link to="/">Go to Home</Link>
+      <Link to="/testing/">Go to sexo</Link>
     </Layout>
   );
 };
