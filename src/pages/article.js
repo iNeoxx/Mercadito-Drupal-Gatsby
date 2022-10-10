@@ -14,9 +14,9 @@ const ArticlePage = ({data}) => {
     <Layout>
       <h3>{ArticlePage.title}</h3>
       <Img fluid={ArticlePage.relationships.field_image.localFile.childImageSharp.fluid} />
-      <div className="redetxt" dangerouslySetInnerHTML={ { __html: ArticlePage.body.value}}/>
+      <div dangerouslySetInnerHTML={ { __html: ArticlePage.body.value}}/>
       <Link to="/">Go to Home</Link>
-      <Link to="/testing/">Go to sexo</Link>
+      <Link to="/testing/">Go to products</Link>
     </Layout>
   );
 };

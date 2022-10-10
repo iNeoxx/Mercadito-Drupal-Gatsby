@@ -12,9 +12,10 @@ const TestingPage = ({ data }) => {
     const TestingPage = data.allNodeProduct.edges;
     const prodList = TestingPage.map((product) =>
         <div>
-            <h3>{product.node.field_title.value}</h3>
-            <div className="redetxt" dangerouslySetInnerHTML={{ __html: product.node.field_price }} />
-            <div className="redetxt" dangerouslySetInnerHTML={{ __html: product.node.body.value }} />
+            <Img fluid={product.node.relationships.field_product_image.localFile.childImageSharp.fluid} />
+            <h3>{product.node.field_product_name.value}</h3>
+            <div dangerouslySetInnerHTML={{ __html: product.node.field_price }} />
+            <div dangerouslySetInnerHTML={{ __html: product.node.field_description.value}} />
         </div>
 
     )
@@ -35,22 +36,34 @@ const TestingPage = ({ data }) => {
 export const Head = () => <Seo title="Home" />
 export const query = graphql`
 query MyQuery {
-    allNodeProduct(filter: {field_category: {drupal_internal__target_id: {eq: 5}}}) {
-      edges {
-        node {
-          id
-          field_title {
-            value
-          }
-          field_price
-          body {
-            value
+  allNodeProduct(filter: {field_state: {drupal_internal__target_id: {eq: 14}}}) {
+    edges {
+      node {
+        id
+        field_product_name {
+          value
+        }
+        field_price
+        field_description {
+          value
+        }
+        relationships {
+          field_product_image {
+            localFile {
+              childImageSharp{
+                fluid(maxWidth: 1400 quality: 100){
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
     }
   }
-  
+}
+
+
   
 
   

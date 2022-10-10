@@ -12,7 +12,7 @@ const IndexPage = ({data}) => {
   return(
     <Layout>
       <h3>{HomePage.title}</h3>
-      <div className="redetxt" dangerouslySetInnerHTML={ { __html: HomePage.body.value}}/>
+      <div dangerouslySetInnerHTML={ { __html: HomePage.body.value}}/>
       <Link to="/article/">Go to article</Link>
     </Layout>
   );
